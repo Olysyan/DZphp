@@ -1,6 +1,6 @@
 <?php
 function getInitials( string $FIO ){ 
-    if($FIO == '' || $FIO == ' ' || substr_count($FIO, ' ') < 1){return  null;}
+    if($FIO == '' || $FIO == ' ' || substr_count($FIO, ' ') < 1 || trim($FIO) == ''){return  null;}
     $string = "";
     $str= explode(" ", $FIO);
     $string .= mb_convert_case($str[0], MB_CASE_TITLE, "UTF-8");
@@ -13,4 +13,5 @@ function getInitials( string $FIO ){
 getInitials("мамин-сибиряк дмитрий наркисович")."\n";
 getInitials("Петров иван")."\n";
 getInitials("Маркес Габриэль Хосе Гарсиа")."\n";
+getInitials("  ")."\n";
 ?>
